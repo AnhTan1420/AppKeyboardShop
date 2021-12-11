@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kleyboardshop/Screen/signup_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -172,18 +173,16 @@ class _SearchScreenState extends State<LoginScreen> {
       ),
     ];
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
+            leading: InkWell(
+              onTap: (){},
+            ),
             pinned: _pinned,
             snap: _snap,
             floating: _floating,
-            expandedHeight: coverHeight - 150, //304,
+            expandedHeight: coverHeight - 60, //304,
             backgroundColor: Colors.transparent,
             flexibleSpace: FlexibleSpaceBar(
               background:
@@ -240,7 +239,7 @@ class _SearchScreenState extends State<LoginScreen> {
                     child: InkWell(
                   onTap: () {
                     print("sign up tapped");
-                    //Get.to(SignUpScreen());
+                    Get.to(SignUpScreen());
                   },
                   child: Text(
                     "Sign Up",
