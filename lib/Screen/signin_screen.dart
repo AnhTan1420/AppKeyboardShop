@@ -183,7 +183,7 @@ class _SearchScreenState extends State<LoginScreen> {
             pinned: _pinned,
             snap: _snap,
             floating: _floating,
-            expandedHeight: coverHeight - 135, //304,
+            expandedHeight: coverHeight - 150, //304,
             backgroundColor: Colors.transparent,
             flexibleSpace: FlexibleSpaceBar(
               background:
