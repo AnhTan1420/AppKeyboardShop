@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/Screen/signup_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import 'package:kleyboardshop/Screen/signin_screen.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      // home: LoginScreen(),
+      home: SignUp(),
 
     );
   }
