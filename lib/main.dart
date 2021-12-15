@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: LoginScreen(),
       // home: SignUpScreen(),
-      home: const HomePage(),
+      home: LoginScreen()
     );
   }
 }

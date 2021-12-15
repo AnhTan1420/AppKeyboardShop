@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kleyboardshop/Screen/home/homepage_screen.dart';
+import 'package:kleyboardshop/Screen/signup_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -89,7 +91,7 @@ class _SearchScreenState extends State<LoginScreen> {
                     if (_formKey.currentState!.validate()) {
                       print("Sign up tapping");
                     }
-                    //Get.to(ChoiceScreen());
+                    Get.to(HomePage());
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
@@ -182,7 +184,7 @@ class _SearchScreenState extends State<LoginScreen> {
             pinned: _pinned,
             snap: _snap,
             floating: _floating,
-            expandedHeight: coverHeight - 150, //304,
+            expandedHeight: coverHeight - 90, //304,
             backgroundColor: Colors.transparent,
             flexibleSpace: FlexibleSpaceBar(
               background:
@@ -239,7 +241,7 @@ class _SearchScreenState extends State<LoginScreen> {
                     child: InkWell(
                   onTap: () {
                     print("sign up tapped");
-                    //Get.to(SignUpScreen());
+                    Get.to(SignUpScreen());
                   },
                   child: Text(
                     "Sign Up",
