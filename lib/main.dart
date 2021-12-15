@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import 'package:kleyboardshop/Screen/signin_screen.dart';
 import 'package:kleyboardshop/Screen/homepage_screen.dart';
+
 main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -18,7 +19,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginScreen(),
-
     );
   }
 }
