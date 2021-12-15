@@ -173,13 +173,12 @@ class _SearchScreenState extends State<LoginScreen> {
     ];
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
+            leading: InkWell(
+              onTap: (){},
+            ),
             pinned: _pinned,
             snap: _snap,
             floating: _floating,
