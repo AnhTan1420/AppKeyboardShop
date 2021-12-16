@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:kleyboardshop/Screen/profile.dart';
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -25,27 +26,26 @@ class Body extends StatelessWidget {
                     ),
                     child: const TextField(
                       decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        hintText: "Tìm kiếm sản phẩm",
-                        prefixIcon: Icon(Icons.search),
-                        contentPadding: EdgeInsets.symmetric(
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          hintText: "Tìm kiếm sản phẩm",
+                          prefixIcon: Icon(Icons.search),
+                          contentPadding: EdgeInsets.symmetric(
                             horizontal: 20,
                             vertical: 16,
-                        )
+                          )
                       ),
                     ),
                   ),
                   Container(
-                    width: 46,
-                    height: 46,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF979797).withOpacity(0.1),
-                      shape: BoxShape.circle,
-                    ),
+                    width: 52,
+                    child: RaisedButton(
+                      onPressed: () async {
+                        Get.to(ProFile());
+                      },
                     child: const Icon(
                       Icons.shopping_cart_sharp,
-                    ),
+                    )),
                   ),
                 ],
               ),
@@ -75,30 +75,30 @@ class Body extends StatelessWidget {
               width: double.infinity,
               // height: 150,
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       Colors.green,
                       Colors.lightGreen,
                     ],
-                ),
-                borderRadius: BorderRadius.circular(15)
+                  ),
+                  borderRadius: BorderRadius.circular(15)
               ),
               child: const Text.rich(
                 TextSpan(
-                  text: 'Đăng ký mới\n',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'Nhận ngay coupon 30%',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      )
+                    text: 'Đăng ký mới\n',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
                     ),
-                  ]
+                    children: [
+                      TextSpan(
+                          text: 'Nhận ngay coupon 30%',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          )
+                      ),
+                    ]
                 ),
 
               ),

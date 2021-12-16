@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/Screen/profile.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import 'package:kleyboardshop/Screen/signin_screen.dart';
 import 'package:kleyboardshop/Screen/home/homepage_screen.dart';
+import 'package:kleyboardshop/Screen/profile.dart';
 
 import 'Screen/signup_screen.dart';
 main() => runApp(MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: LoginScreen(),
       // home: SignUpScreen(),
-      home: LoginScreen()
+      home: HomePage()
     );
   }
 }
