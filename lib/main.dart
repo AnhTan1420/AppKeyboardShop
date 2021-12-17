@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: LoginScreen(),
       // home: SignUpScreen(),
-      home: HomePage()
+      home: HomePage(),
+      // home: ProFile()
     );
   }
 }
