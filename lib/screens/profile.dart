@@ -21,7 +21,6 @@ class _ProFileState extends State<ProFile> {
           elevation: 0.0,
           //centerTitle: true,
           leading: InkWell(
-            onTap: () => Get.to,
             child: Icon(
               Icons.arrow_back,
               color: Colors.black,
@@ -108,7 +107,7 @@ class _ProFileState extends State<ProFile> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Đơn Hàng Của Tôi",
+                          "Giỏ Hàng Của Tôi",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,

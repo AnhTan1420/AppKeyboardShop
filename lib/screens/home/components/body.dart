@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class Body extends StatelessWidget {
@@ -37,14 +38,19 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 52,
-                    child: RaisedButton(
-                      onPressed: () async {
-                        Get.to;
+
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: 50,
+                    child: GestureDetector(
+                      onTap: () async {
+                        // Get.to(ProFile());
                       },
-                    child: const Icon(
-                      Icons.shopping_cart_sharp,
-                    )),
+                      child: CircleAvatar(
+                        backgroundImage:
+                        NetworkImage("https://toigingiuvedep.vn/wp-content/uploads/2021/05/hinh-anh-avatar-de-thuong.jpg"),
+                        radius: 65.0,
+                      ),
+                    ),
                   ),
                 ],
               ),
