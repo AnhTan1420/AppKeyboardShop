@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kleyboardshop/Screen/home/homepage_screen.dart';
+
 
 class ProFile extends StatefulWidget {
   const ProFile({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _ProFileState extends State<ProFile> {
           elevation: 0.0,
           //centerTitle: true,
           leading: InkWell(
-            onTap: () => Get.to(HomePage()),
+            onTap: () => Get.to,
             child: Icon(
               Icons.arrow_back,
               color: Colors.black,

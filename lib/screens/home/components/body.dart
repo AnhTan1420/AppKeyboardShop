@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kleyboardshop/Screen/profile.dart';
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -41,7 +40,7 @@ class Body extends StatelessWidget {
                     width: 52,
                     child: RaisedButton(
                       onPressed: () async {
-                        Get.to(ProFile());
+                        Get.to;
                       },
                     child: const Icon(
                       Icons.shopping_cart_sharp,

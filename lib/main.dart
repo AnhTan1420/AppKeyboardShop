@@ -1,28 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:kleyboardshop/Screen/profile.dart';
 import 'package:provider/provider.dart';
-import 'package:get/get.dart';
-import 'package:kleyboardshop/Screen/signin_screen.dart';
-import 'package:kleyboardshop/Screen/home/homepage_screen.dart';
-import 'package:kleyboardshop/Screen/profile.dart';
-
-import 'Screen/signup_screen.dart';
-main() => runApp(MyApp());
+import './screens/cart_screen.dart';
+import './screens/products_overview_screen.dart';
+import './screens/product_detail_screen.dart';
+import './providers/products.dart';
+import './providers/cart.dart';
+import './providers/orders.dart';
+import './screens/orders_screen.dart';
+import './screens/signin_screen.dart';
+import './screens/signup_screen.dart';
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key) ;
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // home: LoginScreen(),
-      // home: SignUpScreen(),
-      home: HomePage()
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: Products(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Cart(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Orders(),
+        ),
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'MyShop',
+          theme: ThemeData(
+            primarySwatch: Colors.green,
+            accentColor: Colors.deepOrange,
+            fontFamily: 'Lat',
+          ),
+          home: LoginScreen(),
+          routes: {
+            ProductsOverviewScreen.routeName: (ctx) => const ProductsOverviewScreen(),
+            ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
+            CartScreen.routeName: (ctx) => const CartScreen(),
+            OrdersScreen.routeName: (ctx) => const OrdersScreen(),
+            SignUpScreen.routeName: (ctx) => SignUpScreen(),
+            LoginScreen.routeName: (ctx) => LoginScreen(),
+          }),
     );
   }
 }

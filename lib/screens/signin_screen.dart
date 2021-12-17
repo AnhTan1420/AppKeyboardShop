@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kleyboardshop/Screen/home/homepage_screen.dart';
-import 'package:kleyboardshop/Screen/signup_screen.dart';
+import 'package:kleyboardshop/screens/products_overview_screen.dart';
+import 'package:kleyboardshop/screens/signup_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
    LoginScreen() : super();
-
+   static const routeName = '/login';
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
@@ -90,8 +90,10 @@ class _SearchScreenState extends State<LoginScreen> {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       print("Sign up tapping");
+                        Navigator.of(context)
+                            .pushReplacementNamed(ProductsOverviewScreen.routeName);
                     }
-                    Get.to(HomePage());
+                    Get.to(const ProductsOverviewScreen());
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
@@ -241,8 +243,10 @@ class _SearchScreenState extends State<LoginScreen> {
                     child: InkWell(
                   onTap: () {
                     print("sign up tapped");
-                    Get.to(SignUpScreen());
-                  },
+                    Navigator.of(context)
+        .pushReplacementNamed(SignUpScreen.routeName);
+    },
+
                   child: Text(
                     "Sign Up",
                     style: TextStyle(

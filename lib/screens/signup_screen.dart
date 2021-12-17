@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kleyboardshop/Screen/signin_screen.dart';
+import 'package:kleyboardshop/screens/signin_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen() : super();
-
+  static const routeName = '/signup';
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
@@ -29,7 +29,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         elevation: 0.0,
         //centerTitle: true,
         leading: InkWell(
-          onTap: () => Get.to(LoginScreen()),
+          onTap: () {
+            Navigator.of(context)
+                .pushReplacementNamed(LoginScreen.routeName);
+          },
           child:  Icon(
             Icons.arrow_back,
             color: Colors.black,
