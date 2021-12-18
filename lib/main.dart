@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/screens/forgotpass_screen.dart';
 import 'package:provider/provider.dart';
 import './screens/cart_screen.dart';
 import './screens/products_overview_screen.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'MyShop',
           theme: ThemeData(
-            primarySwatch: Colors.green,
+            primarySwatch: Colors.blueGrey,
             accentColor: Colors.deepOrange,
             fontFamily: 'Lat',
           ),
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
             SignUpScreen.routeName: (ctx) => SignUpScreen(),
             LoginScreen.routeName: (ctx) => LoginScreen(),
+            ForgotScreen.routeName: (ctx) => ForgotScreen(),
           }),
 
     );

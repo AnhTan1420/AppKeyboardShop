@@ -39,7 +39,7 @@ class ProductItem extends StatelessWidget {
               icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_border,
               ),
-              color: Colors.red,
+              color: Colors.redAccent,
               onPressed: () {
                 product.toggleFavoriteStatus();
               },
@@ -56,12 +56,12 @@ class ProductItem extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: const Icon(
-              Icons.shopping_cart,
+              Icons.shopping_cart_outlined,
             ),
             onPressed: () {
               cart.addItem(product.id, product.price, product.title);
             },
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),

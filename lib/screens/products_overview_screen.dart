@@ -64,11 +64,11 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             ),
             itemBuilder: (_) => [
               const PopupMenuItem(
-                child: Text('Only Favorites'),
+                child: Text('Yêu thích của tôi'),
                 value: FilterOptions.Favorites,
               ),
               const PopupMenuItem(
-                child: Text('Show All'),
+                child: Text('Hiển thị tất cả'),
                 value: FilterOptions.All,
               ),
             ],
@@ -90,6 +90,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         ],
       ),
       drawer: const AppDrawer(),
+
       body:ProductsGrid(_showOnlyFavorites),
     );
   }

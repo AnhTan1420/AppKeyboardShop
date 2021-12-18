@@ -3,18 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:kleyboardshop/screens/signin_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
 
-class SignUpScreen extends StatefulWidget {
-  SignUpScreen() : super();
-  static const routeName = '/signup';
+class ForgotScreen extends StatefulWidget {
+  ForgotScreen() : super();
+  static const routeName = '/Forgot';
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _ForgotState createState() => _ForgotState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _ForgotState extends State<ForgotScreen> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _name = TextEditingController();
-  final TextEditingController _pass = TextEditingController();
-  final TextEditingController _confirmPass = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -73,7 +70,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           child: const Text(
-                            'Sign-up',
+                            'Forgot-password',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 40,
@@ -94,45 +91,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   obscureText: false,
                                   keyboardType: TextInputType.emailAddress),
                               const SizedBox(
-                                height: 12.0,
-                              ),
-                              InputTextWidget(
-                                  controller: _name,
-                                  labelText: "Name",
-                                  obscureText: true,
-                                  keyboardType: TextInputType.text),
-                              const SizedBox(
-                                height: 12.0,
-                              ),
-                              InputTextWidget(
-                                  controller: _pass,
-                                  labelText: "Password",
-                                  obscureText: true,
-                                  keyboardType: TextInputType.text),
-                              const SizedBox(
-                                height: 12.0,
-                              ),
-                              InputTextWidget(
-                                  controller: _confirmPass,
-                                  labelText: "Confirm Password",
-                                  obscureText: true,
-                                  keyboardType: TextInputType.text),
-                              const SizedBox(
-                                height: 30.0,
+                                height: 50.0,
                               ),
                               Container(
                                 height: 55.0,
                                 child: ElevatedButton(
                                   onPressed: () async {
                                     if (_formKey.currentState!.validate()) {
-                                      print("Sign up tapping");
+                                      print("Submit tapping");
                                     }
-                                    //Get.to(ChoiceScreen());
                                   },
                                   style: ElevatedButton.styleFrom(
                                     primary: Colors.white,
                                     elevation: 0.0,
-                                    minimumSize: Size(screenWidth, 150),
+                                    minimumSize: Size(screenWidth, 100),
                                     padding:
                                     EdgeInsets.symmetric(horizontal: 30),
                                     shape: const RoundedRectangleBorder(
@@ -149,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     child: Container(
                                       alignment: Alignment.center,
                                       child: const Text(
-                                        "Sign Up",
+                                        "Submit",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 25),
@@ -160,6 +132,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ],
                           )),
+                      Container(
+                        height: 50.0,
+                        color: Colors.white,
+                        child: Center(
+                            child: Wrap(
+                              children: [
+                                Material(
+                                    child: InkWell(
+                                      onTap: () {
+                                        print("sign up tapped");
+                                        Navigator.of(context)
+                                            .pushReplacementNamed(LoginScreen.routeName);
+                                      },
+                                      child: Text(
+                                        "Back to Log-in",
+                                        style: TextStyle(
+                                          color: Colors.blue[800],
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    )),
+                              ],
+                            )),
+                      ),
                       // ),
                     ],
                   ),

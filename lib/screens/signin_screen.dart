@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kleyboardshop/screens/forgotpass_screen.dart';
 import 'package:kleyboardshop/screens/products_overview_screen.dart';
 import 'package:kleyboardshop/screens/signup_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
@@ -70,7 +71,10 @@ class _SearchScreenState extends State<LoginScreen> {
                     child: Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(ForgotScreen.routeName);
+                        },
                         child: Text(
                           "Forgot password?",
                           style: TextStyle(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show AppBar, BoxFit, BuildContext, Colors,
 Column, Container, EdgeInsets, Image, ModalRoute, Scaffold, SingleChildScrollView,
 SizedBox, StatelessWidget, Text, TextAlign, TextStyle, Widget;
@@ -42,7 +43,8 @@ class ProductDetailScreen extends StatelessWidget {
             Text(
               '\$${loadedProduct.price}',
               style: const TextStyle(
-                color: Colors.grey,
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
             ),
@@ -54,6 +56,9 @@ class ProductDetailScreen extends StatelessWidget {
               width: double.infinity,
               child: Text(
                 loadedProduct.description,
+                style: const TextStyle(
+                  fontSize: 25,
+                ),
                 textAlign: TextAlign.center,
                 softWrap: true,
               ),
