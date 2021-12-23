@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../screens/product_detail_screen.dart';
 import '../providers/product.dart';
 import '../providers/cart.dart';
@@ -47,7 +46,7 @@ class ProductItem extends StatelessWidget {
           ),
           title: Text(
             product.title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               color: Colors.white,
               fontWeight: FontWeight.bold,

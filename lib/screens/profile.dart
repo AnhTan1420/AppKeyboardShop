@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:kleyboardshop/screens/products_overview_screen.dart';
+
 
 
 class ProFile extends StatefulWidget {
   const ProFile({Key? key}) : super(key: key);
-
+  static const routeName = '/profile';
   @override
   _ProFileState createState() => _ProFileState();
 }
@@ -21,6 +22,10 @@ class _ProFileState extends State<ProFile> {
           elevation: 0.0,
           //centerTitle: true,
           leading: InkWell(
+            onTap: (){
+              Navigator.of(context)
+                  .pushReplacementNamed(ProductsOverviewScreen.routeName);
+            },
             child: Icon(
               Icons.arrow_back,
               color: Colors.black,
@@ -66,6 +71,7 @@ class _ProFileState extends State<ProFile> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green, // background
@@ -77,11 +83,11 @@ class _ProFileState extends State<ProFile> {
                       child: Container(
                         constraints: BoxConstraints(
                           maxWidth: 90.0,
-                          maxHeight: 150,
+                          maxHeight: 150.0,
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Yêu Thích Của Tôi",
+                          "Chỉnh sửa",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
@@ -107,33 +113,7 @@ class _ProFileState extends State<ProFile> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Giỏ Hàng Của Tôi",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              letterSpacing: 2.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.green, // background
-                      onPrimary: Colors.white, // foreground
-                    ),
-                    onPressed: () {},
-
-                    child: Ink(
-                      child: Container(
-                        constraints: BoxConstraints(
-                          maxWidth: 90.0,
-                          maxHeight: 150.0,
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Đơn Hàng Đã Mua",
+                          "Đổi mật khẩu",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kleyboardshop/screens/orders_screen.dart';
 import 'package:kleyboardshop/screens/products_overview_screen.dart';
+import 'package:kleyboardshop/screens/profile.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: const Text('Hi Bro!'),
+            title: const Text('Hello Anh Tân!'),
             automaticallyImplyLeading: false,
           ),
           const Divider(),
@@ -21,6 +22,15 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(ProductsOverviewScreen.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.male),
+            title: const Text('Profile'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(ProFile.routeName);
             },
           ),
           const Divider(),

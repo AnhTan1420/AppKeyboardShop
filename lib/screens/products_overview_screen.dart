@@ -32,7 +32,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         actions: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width * 0.6,
-            height: 40,
             decoration: BoxDecoration(
               color:  Colors.white,
             ),
@@ -43,7 +42,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                   hintText: "Tìm kiếm sản phẩm",
                   prefixIcon: Icon(Icons.search),
                   contentPadding: EdgeInsets.symmetric(
-                    horizontal: 20,
                     vertical: 20,
                   )
               ),
@@ -90,7 +88,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         ],
       ),
       drawer: const AppDrawer(),
-
       body:ProductsGrid(_showOnlyFavorites),
     );
   }

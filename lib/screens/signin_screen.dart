@@ -54,6 +54,7 @@ class _SearchScreenState extends State<LoginScreen> {
               InputTextWidget(
                   controller: _emailController,
                   labelText: "Email",
+                  hintText: "Your email",
                   obscureText: false,
                   keyboardType: TextInputType.emailAddress),
               const SizedBox(
@@ -62,6 +63,7 @@ class _SearchScreenState extends State<LoginScreen> {
               InputTextWidget(
                   controller: _pwdController,
                   labelText: "Password",
+                  hintText: "Your password",
                   obscureText: true,
                   keyboardType: TextInputType.text),
               Padding(
@@ -131,7 +133,7 @@ class _SearchScreenState extends State<LoginScreen> {
       Wrap(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 140.0, right: 10.0, top: 15.0),
+            padding: const EdgeInsets.only(left: 132.0, right: 10.0, top: 15.0),
             child: SizedBox(
               width: (screenWidth / 6),
               height: 55,

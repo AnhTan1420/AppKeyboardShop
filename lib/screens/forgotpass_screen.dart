@@ -88,6 +88,7 @@ class _ForgotState extends State<ForgotScreen> {
                               InputTextWidget(
                                   controller: _emailController,
                                   labelText: "Email",
+                                  hintText: "Your email",
                                   obscureText: false,
                                   keyboardType: TextInputType.emailAddress),
                               const SizedBox(

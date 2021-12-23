@@ -91,6 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               InputTextWidget(
                                   controller: _emailController,
                                   labelText: "Email",
+                                  hintText: "Your email",
                                   obscureText: false,
                                   keyboardType: TextInputType.emailAddress),
                               const SizedBox(
@@ -99,6 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               InputTextWidget(
                                   controller: _name,
                                   labelText: "Name",
+                                  hintText: "Your name",
                                   obscureText: true,
                                   keyboardType: TextInputType.text),
                               const SizedBox(
@@ -106,7 +108,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               InputTextWidget(
                                   controller: _pass,
-                                  labelText: "Password",
+                                  labelText: " New Password",
+                                  hintText: "Your password",
                                   obscureText: true,
                                   keyboardType: TextInputType.text),
                               const SizedBox(
@@ -115,6 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               InputTextWidget(
                                   controller: _confirmPass,
                                   labelText: "Confirm Password",
+                                  hintText: "Your password",
                                   obscureText: true,
                                   keyboardType: TextInputType.text),
                               const SizedBox(
