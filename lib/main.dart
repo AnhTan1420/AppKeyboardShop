@@ -44,11 +44,11 @@ class MyApp extends StatelessWidget {
             ProductsOverviewScreen.routeName: (ctx) => const ProductsOverviewScreen(),
             ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
             CartScreen.routeName: (ctx) => const CartScreen(),
-            OrdersScreen.routeName: (ctx) => const OrdersScreen(),
             SignUpScreen.routeName: (ctx) => SignUpScreen(),
             LoginScreen.routeName: (ctx) => LoginScreen(),
             ForgotScreen.routeName: (ctx) => ForgotScreen(),
             ProFile.routeName: (ctx) => ProFile(),
+            OrdersScreen.routeName: (ctx) => const OrdersScreen(),
           }),
 
     );
