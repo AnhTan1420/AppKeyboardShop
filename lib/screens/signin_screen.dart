@@ -54,7 +54,7 @@ class _SearchScreenState extends State<LoginScreen> {
               InputTextWidget(
                   controller: _emailController,
                   labelText: "Email",
-                  hintText: "Your email",
+                  hintText: "Enter your email",
                   obscureText: false,
                   keyboardType: TextInputType.emailAddress),
               const SizedBox(
@@ -63,7 +63,7 @@ class _SearchScreenState extends State<LoginScreen> {
               InputTextWidget(
                   controller: _pwdController,
                   labelText: "Password",
-                  hintText: "Your password",
+                  hintText: "Enter your password",
                   obscureText: true,
                   keyboardType: TextInputType.text),
               Padding(
