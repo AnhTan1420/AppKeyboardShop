@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
 	res.send('Hello World!')
 })
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
+})
+const io = require('socket.io')(server)
+io.on('connection', socket => {
+	console.log('Connected Successfully', socket.id)
 })
