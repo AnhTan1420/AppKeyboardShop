@@ -12,10 +12,11 @@ import './screens/orders_screen.dart';
 import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/profile.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key) ;
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
           ),
           home: LoginScreen(),
           routes: {
-            ProductsOverviewScreen.routeName: (ctx) => const ProductsOverviewScreen(),
+            ProductsOverviewScreen.routeName: (ctx) =>
+                const ProductsOverviewScreen(),
             ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
             CartScreen.routeName: (ctx) => const CartScreen(),
             SignUpScreen.routeName: (ctx) => SignUpScreen(),
@@ -50,7 +52,6 @@ class MyApp extends StatelessWidget {
             ProFile.routeName: (ctx) => ProFile(),
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
           }),
-
     );
   }
 }
