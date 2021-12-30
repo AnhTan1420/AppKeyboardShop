@@ -18,7 +18,7 @@ class AppDrawer extends StatelessWidget {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.shop),
-            title: const Text('Akko keyboard'),
+            title: const Text('Akko'),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(ProductsOverviewScreen.routeName);
@@ -26,7 +26,7 @@ class AppDrawer extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
-            leading: const Icon(Icons.male),
+            leading: const Icon(Icons.person),
             title: const Text('Profile'),
             onTap: () {
               Navigator.of(context)
