@@ -82,6 +82,87 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       // SingleChildScrollView(
                       //   scrollDirection: Axis.vertical,
+                      // Form here
+                      Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              InputTextWidget(
+                                  controller: _emailController,
+                                  labelText: "Email",
+                                  hintText: "Your email",
+                                  obscureText: false,
+                                  keyboardType: TextInputType.emailAddress),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              InputTextWidget(
+                                  controller: _name,
+                                  labelText: "Name",
+                                  hintText: "Enter your name",
+                                  obscureText: true,
+                                  keyboardType: TextInputType.text),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              InputTextWidget(
+                                  controller: _pass,
+                                  labelText: " New Password",
+                                  hintText: "Enter your password",
+                                  obscureText: true,
+                                  keyboardType: TextInputType.text),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              InputTextWidget(
+                                  controller: _confirmPass,
+                                  labelText: "Confirm Password",
+                                  hintText: "Confirm the password",
+                                  obscureText: true,
+                                  keyboardType: TextInputType.text),
+                              const SizedBox(
+                                height: 30.0,
+                              ),
+                              Container(
+                                height: 55.0,
+                                child: ElevatedButton(
+                                  onPressed: () async {
+                                    if (_formKey.currentState!.validate()) {
+                                      print("Sign up tapping");
+                                    }
+                                    //Get.to(ChoiceScreen());
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.white,
+                                    elevation: 0.0,
+                                    minimumSize: Size(screenWidth, 150),
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 30),
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(0)),
+                                    ),
+                                  ),
+                                  child: Ink(
+                                    decoration: BoxDecoration(
+                                        color: const Color(
+                                            0xff1E5128), // Color(0xffF05945),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0)),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: const Text(
+                                        "Sign Up",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 25),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )),
                       // ),
                     ],
                   ),
