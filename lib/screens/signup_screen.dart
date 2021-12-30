@@ -22,17 +22,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBodyBehindAppBar: true,
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         //centerTitle: true,
         leading: InkWell(
           onTap: () {
-            Navigator.of(context)
-                .pushReplacementNamed(LoginScreen.routeName);
+            Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
           },
-          child:  Icon(
+          child: Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -41,13 +39,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-              // begin: Alignment.topRight,
-              // end: Alignment.bottomLeft,
-              colors: [
-                Colors.green,
-                Colors.lightGreen,
-              ],
-            )),
+          // begin: Alignment.topRight,
+          // end: Alignment.bottomLeft,
+          colors: [
+            Colors.green,
+            Colors.lightGreen,
+          ],
+        )),
         child: Column(
           children: [
             SizedBox(
@@ -84,6 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       // SingleChildScrollView(
                       //   scrollDirection: Axis.vertical,
+                      // Form here
                       Form(
                           key: _formKey,
                           child: Column(
@@ -138,10 +137,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     elevation: 0.0,
                                     minimumSize: Size(screenWidth, 150),
                                     padding:
-                                    EdgeInsets.symmetric(horizontal: 30),
+                                        EdgeInsets.symmetric(horizontal: 30),
                                     shape: const RoundedRectangleBorder(
                                       borderRadius:
-                                      BorderRadius.all(Radius.circular(0)),
+                                          BorderRadius.all(Radius.circular(0)),
                                     ),
                                   ),
                                   child: Ink(
@@ -149,7 +148,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         color: const Color(
                                             0xff1E5128), // Color(0xffF05945),
                                         borderRadius:
-                                        BorderRadius.circular(12.0)),
+                                            BorderRadius.circular(12.0)),
                                     child: Container(
                                       alignment: Alignment.center,
                                       child: const Text(
