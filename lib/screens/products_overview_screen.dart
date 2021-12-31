@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' ;
-import 'package:kleyboardshop/providers/product.dart';
 import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
-import 'package:kleyboardshop/widgets/product_item.dart';
 import 'package:kleyboardshop/widgets/products_grid.dart';
 import 'package:provider/provider.dart' ;
-import '../widgets/app_drawer.dart' ;
 import '../widgets/products_grid.dart' ;
 import '../widgets/badge.dart' ;
 import '../providers/cart.dart';
 import './cart_screen.dart';
-import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
+
 enum FilterOptions {
   Favorites,
   All,
