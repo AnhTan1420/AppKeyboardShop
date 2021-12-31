@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' ;
 import 'package:kleyboardshop/providers/product.dart';
+import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
 import 'package:kleyboardshop/widgets/product_item.dart';
 import 'package:kleyboardshop/widgets/products_grid.dart';
 import 'package:provider/provider.dart' ;
@@ -9,7 +10,7 @@ import '../widgets/products_grid.dart' ;
 import '../widgets/badge.dart' ;
 import '../providers/cart.dart';
 import './cart_screen.dart';
-
+import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
 enum FilterOptions {
   Favorites,
   All,
@@ -25,13 +26,14 @@ class ProductsOverviewScreen extends StatefulWidget {
 class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   var _showOnlyFavorites = false;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
           Container(
-            width: MediaQuery.of(context).size.width * 0.6,
+            width: MediaQuery.of(context).size.width * 0.755,
             decoration: BoxDecoration(
               color:  Colors.white,
             ),
@@ -87,8 +89,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
-      drawer: const AppDrawer(),
       body:ProductsGrid(_showOnlyFavorites),
+      bottomNavigationBar: BottomMenuBar(),
     );
   }
 }

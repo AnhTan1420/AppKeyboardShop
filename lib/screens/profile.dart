@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kleyboardshop/screens/products_overview_screen.dart';
-
+import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
 
 
 class ProFile extends StatefulWidget {
@@ -15,23 +14,7 @@ class _ProFileState extends State<ProFile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          toolbarHeight: 35.0,
-          backgroundColor: Colors.green,
-          elevation: 0.0,
-          //centerTitle: true,
-          leading: InkWell(
-            onTap: (){
-              Navigator.of(context)
-                  .pushReplacementNamed(ProductsOverviewScreen.routeName);
-            },
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
-          ),
-        ),
+       bottomNavigationBar: BottomMenuBar() ,
         body: SafeArea(
           child: Column(
             children: [

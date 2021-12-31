@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
 import 'package:provider/provider.dart' show Provider;
 import '../providers/orders.dart' show Orders;
 import '../widgets/order_item.dart';
-import '../widgets/app_drawer.dart';
+import '../widgets/bottom_menu_bar.dart';
 
 class OrdersScreen extends StatelessWidget {
   static const routeName = '/orders';
@@ -16,7 +17,7 @@ class OrdersScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Your Orders'),
       ),
-      drawer: const AppDrawer(),
+      bottomNavigationBar: BottomMenuBar(),
       body: ListView.builder(
         itemCount: orderData.orders.length,
         itemBuilder: (ctx, i) => OrderItem(orderData.orders[i]),

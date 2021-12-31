@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kleyboardshop/screens/forgotpass_screen.dart';
 import 'package:kleyboardshop/screens/profile.dart';
+import 'package:kleyboardshop/screens/setting_screen.dart';
 import 'package:provider/provider.dart';
 import './screens/cart_screen.dart';
 import './screens/products_overview_screen.dart';
@@ -12,7 +13,7 @@ import './screens/orders_screen.dart';
 import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/profile.dart';
-
+import './screens/setting_screen.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
             ForgotScreen.routeName: (ctx) => ForgotScreen(),
             ProFile.routeName: (ctx) => ProFile(),
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
+            SettingsPage.routeName: (ctx) => SettingsPage(),
           }),
     );
   }
