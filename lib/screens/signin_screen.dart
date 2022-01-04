@@ -7,8 +7,8 @@ import 'package:kleyboardshop/screens/signup_screen.dart';
 import 'package:kleyboardshop/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
-   LoginScreen() : super();
-   static const routeName = '/login';
+  LoginScreen() : super();
+  static const routeName = '/login';
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
@@ -47,134 +47,89 @@ class _SearchScreenState extends State<LoginScreen> {
       const SizedBox(
         height: 12.0,
       ),
-      const SizedBox(
-        height: 30.0,
-      ),
-      child: Column(
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 120,
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  width: screenWidth,
-                  height: screenHeight,
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 30, bottom: 25, left: 25),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 50,
-                          child: const Text(
-                            'Sign-up',
-                            style: TextStyle(
+      Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              InputTextWidget(
+                  controller: _emailController,
+                  labelText: "Email",
+                  hintText: "Enter your email",
+                  obscureText: false,
+                  keyboardType: TextInputType.emailAddress),
+              const SizedBox(
+                height: 12.0,
+              ),
+              InputTextWidget(
+                  controller: _pwdController,
+                  labelText: "Password",
+                  hintText: "Enter your password",
+                  obscureText: true,
+                  keyboardType: TextInputType.text),
+              Padding(
+                padding: const EdgeInsets.only(right: 25.0, top: 10.0),
+                child: Align(
+                    alignment: Alignment.topRight,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(ForgotScreen.routeName);
+                        },
+                        child: Text(
+                          "Forgot password?",
+                          style: TextStyle(
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              fontSize: 40,
-                              color: Colors.black,
-                            ),
-                          ),
+                              color: Colors.grey[700]),
                         ),
                       ),
-                      // SingleChildScrollView(
-                      //   scrollDirection: Axis.vertical,
-                      // Form here
-                      Form(
-                          key: _formKey,
-                          child: Column(
-                            children: [
-                              InputTextWidget(
-                                  controller: _emailController,
-                                  labelText: "Email",
-                                  hintText: "Your email",
-                                  obscureText: false,
-                                  keyboardType: TextInputType.emailAddress),
-                              const SizedBox(
-                                height: 12.0,
-                              ),
-                              InputTextWidget(
-                                  controller: _name,
-                                  labelText: "Name",
-                                  hintText: "Enter your name",
-                                  obscureText: true,
-                                  keyboardType: TextInputType.text),
-                              const SizedBox(
-                                height: 12.0,
-                              ),
-                              InputTextWidget(
-                                  controller: _pass,
-                                  labelText: " New Password",
-                                  hintText: "Enter your password",
-                                  obscureText: true,
-                                  keyboardType: TextInputType.text),
-                              const SizedBox(
-                                height: 12.0,
-                              ),
-                              InputTextWidget(
-                                  controller: _confirmPass,
-                                  labelText: "Confirm Password",
-                                  hintText: "Confirm the password",
-                                  obscureText: true,
-                                  keyboardType: TextInputType.text),
-                              const SizedBox(
-                                height: 30.0,
-                              ),
-                              Container(
-                                height: 55.0,
-                                child: ElevatedButton(
-                                  onPressed: () async {
-                                    if (_formKey.currentState!.validate()) {
-                                      print("Sign up tapping");
-                                    }
-                                    //Get.to(ChoiceScreen());
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.white,
-                                    elevation: 0.0,
-                                    minimumSize: Size(screenWidth, 150),
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 30),
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(0)),
-                                    ),
-                                  ),
-                                  child: Ink(
-                                    decoration: BoxDecoration(
-                                        color: const Color(
-                                            0xff1E5128), // Color(0xffF05945),
-                                        borderRadius:
-                                            BorderRadius.circular(12.0)),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      child: const Text(
-                                        "Sign Up",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 25),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )),
-                      // ),
-                    ],
+                    )),
+              ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              Container(
+                height: 55.0,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      print("Sign up tapping");
+                      Navigator.of(context).pushReplacementNamed(
+                          ProductsOverviewScreen.routeName);
+                    }
+                    Get.to(const ProductsOverviewScreen());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    elevation: 0.0,
+                    minimumSize: Size(screenWidth, 150),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(0)),
+                    ),
+                  ),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        color: const Color(0xff1E5128), // Color(0xffF05945),
+                        borderRadius: BorderRadius.circular(12.0)),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "Sign In",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            )
-          ],
-        ),
+            ],
+          )),
+      const SizedBox(
+        height: 30.0,
+      ),
       Wrap(
         children: [
           Padding(
@@ -232,7 +187,7 @@ class _SearchScreenState extends State<LoginScreen> {
         slivers: <Widget>[
           SliverAppBar(
             leading: InkWell(
-              onTap: (){},
+              onTap: () {},
             ),
             pinned: _pinned,
             snap: _snap,
@@ -295,9 +250,8 @@ class _SearchScreenState extends State<LoginScreen> {
                   onTap: () {
                     print("sign up tapped");
                     Navigator.of(context)
-        .pushReplacementNamed(SignUpScreen.routeName);
-    },
-
+                        .pushReplacementNamed(SignUpScreen.routeName);
+                  },
                   child: Text(
                     "Sign Up",
                     style: TextStyle(
