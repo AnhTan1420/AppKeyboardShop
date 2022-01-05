@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kleyboardshop/screens/signin_screen.dart';
 import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
+
 class SettingsPage extends StatefulWidget {
   static const routeName = '/setting';
   @override
@@ -107,7 +108,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             Center(
               child: OutlineButton(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: EdgeInsets.symmetric(horizontal: 100),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 onPressed: () {
@@ -116,7 +117,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
                 child: Text("SIGN OUT",
                     style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
+                        fontSize: 18,
+                        letterSpacing: 2.2,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold)),
               ),
             )
           ],
@@ -146,8 +150,6 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-
-
   GestureDetector buildAccountOptionRow(BuildContext context, String title) {
     return GestureDetector(
       child: Padding(
@@ -172,6 +174,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+
   GestureDetector buildMoreOptionRow(BuildContext context, String title) {
     return GestureDetector(
       child: Padding(
