@@ -65,17 +65,17 @@ class _ProFileState extends State<ProFile> {
                     child: Ink(
                       child: Container(
                         constraints: BoxConstraints(
-                          maxWidth: 90.0,
-                          maxHeight: 150.0,
+                          maxWidth: 120.0,
+                          maxHeight: 90.0,
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Đang vận chuyển",
-                          textAlign: TextAlign.left,
+                          "Being Transported",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.0,
-                              letterSpacing: 2.0,
+                              fontSize: 18,
+                              letterSpacing: 1.0,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -91,17 +91,17 @@ class _ProFileState extends State<ProFile> {
                     child: Ink(
                       child: Container(
                         constraints: BoxConstraints(
-                          maxWidth: 90.0,
-                          maxHeight: 150.0,
+                          maxWidth: 120.0,
+                          maxHeight: 90.0,
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Đã xem gần đây",
+                          "Recently Viewed",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.0,
-                              letterSpacing: 2.0,
+                              fontSize: 18,
+                              letterSpacing: 1.0,
                               fontWeight: FontWeight.bold),
                         ),
                       ),

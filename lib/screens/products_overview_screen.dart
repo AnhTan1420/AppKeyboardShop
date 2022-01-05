@@ -38,7 +38,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               decoration: InputDecoration(
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
-                  hintText: "Tìm kiếm sản phẩm",
+                  hintText: "Search keyboards",
                   prefixIcon: Icon(Icons.search),
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 20,

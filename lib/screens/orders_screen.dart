@@ -15,7 +15,7 @@ class OrdersScreen extends StatelessWidget {
     final orderData = Provider.of<Orders>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Đơn hàng đã mua'),
+        title: const Text('Your Orders'),
       ),
       bottomNavigationBar: BottomMenuBar(),
       body: ListView.builder(
