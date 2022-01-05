@@ -5,7 +5,7 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
-
+  static const routeName = '/ChatBox';
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }

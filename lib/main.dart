@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/screens/box_chat_screen.dart';
 import 'package:kleyboardshop/screens/forgotpass_screen.dart';
 import 'package:kleyboardshop/screens/profile.dart';
 import 'package:kleyboardshop/screens/setting_screen.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
             ProFile.routeName: (ctx) => ProFile(),
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
             SettingsPage.routeName: (ctx) => SettingsPage(),
+            ChatScreen.routeName: (ctx) => const ChatScreen(),
           }),
     );
   }

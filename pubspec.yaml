@@ -38,6 +38,7 @@ dependencies:
   get: ^4.5.1
   intl: ^0.17.0
   settings_ui: ^1.0.0
+  socket_io_client: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

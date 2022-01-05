@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/screens/box_chat_screen.dart';
 import 'package:kleyboardshop/screens/setting_screen.dart';
 import 'package:kleyboardshop/theme/colors.dart';
 import 'package:kleyboardshop/screens/orders_screen.dart';
@@ -44,6 +45,15 @@ class _BottomMenuBarState extends State<BottomMenuBar> {
                 onPressed: () {
                   Navigator.of(context)
                       .pushReplacementNamed(ProFile.routeName);
+                },
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                icon: Icon(Icons.chat_bubble_outline, color: KColors.icon),
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(ChatScreen.routeName);
                 },
               ),
             ),
