@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore
 
 import 'package:flutter/material.dart';
+import 'package:kleyboardshop/screens/products_overview_screen.dart';
+import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ChatScreen extends StatefulWidget {
@@ -37,6 +39,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
+      bottomNavigationBar: BottomMenuBar(),
       // ignore: avoid_unnecessary_containers
       body: Container(
         child: Column(

@@ -41,7 +41,7 @@ class _BottomMenuBarState extends State<BottomMenuBar> {
             ),
             Expanded(
               child: IconButton(
-                icon: Icon(Icons.person_outline_rounded, color: KColors.icon),
+                icon: Icon(Icons.person, color: KColors.icon),
                 onPressed: () {
                   Navigator.of(context)
                       .pushReplacementNamed(ProFile.routeName);
@@ -50,7 +50,7 @@ class _BottomMenuBarState extends State<BottomMenuBar> {
             ),
             Expanded(
               child: IconButton(
-                icon: Icon(Icons.chat_bubble_outline, color: KColors.icon),
+                icon: Icon(Icons.chat_bubble_outline_rounded, color: KColors.icon),
                 onPressed: () {
                   Navigator.of(context)
                       .pushReplacementNamed(ChatScreen.routeName);

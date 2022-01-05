@@ -70,8 +70,8 @@ class _ProFileState extends State<ProFile> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Chỉnh sửa",
-                          textAlign: TextAlign.center,
+                          "Đang vận chuyển",
+                          textAlign: TextAlign.left,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
@@ -96,7 +96,7 @@ class _ProFileState extends State<ProFile> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          "Đổi mật khẩu",
+                          "Đã xem gần đây",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
