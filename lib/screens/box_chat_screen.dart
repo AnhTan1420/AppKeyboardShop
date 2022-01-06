@@ -1,8 +1,12 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
+import 'package:kleyboardshop/controller/chat.controller.dart';
+import 'package:kleyboardshop/model/message.dart';
 import 'package:kleyboardshop/screens/products_overview_screen.dart';
 import 'package:kleyboardshop/widgets/bottom_menu_bar.dart';
+// ignore: library_prefixes
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ChatScreen extends StatefulWidget {
@@ -19,11 +23,18 @@ class _ChatScreenState extends State<ChatScreen> {
   TextEditingController msgInputController = TextEditingController();
   late IO.Socket socket;
 
+  ChatController chatController = ChatController();
   @override
   void initState() {
-    socket = IO.io('http://192.168.1.14:3000', <String, dynamic>{
-      'transports': ['websocket'],
-    });
+    socket = IO.io(
+        'http://192.168.1.14:3000',
+        IO.OptionBuilder()
+            .setTransports(['websocket'])
+            .disableAutoConnect()
+            .build());
+    // socket = IO.io('http://192.168.1.14:3000', <String, dynamic>{
+    //   'transports': ['websocket'],
+    // });
 
     socket.connect();
     setUpSocketListener();
@@ -37,7 +48,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void setState(VoidCallback fn) {
-    if (this.mounted) {
+    if (mounted) {
       return super.setState(fn);
     }
   }
@@ -52,24 +63,38 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: [
             Expanded(
+                child: Obx(
+              () => Container(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  "Connected user ${chatController.connectedUser}",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.0,
+                  ),
+                ),
+              ),
+            )),
+            Expanded(
                 flex: 9,
                 // ignore: avoid_unnecessary_containers
-                child: Container(
-                    child: ListView.builder(
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          // ignore: prefer_const_constructors
-                          return MessageItem(
-                            sentByMe: true,
-                          );
-                        }))),
+                child: Obx(() => ListView.builder(
+                    itemCount: chatController.chatMessages.length,
+                    itemBuilder: (context, index) {
+                      var currentItem = chatController.chatMessages[index];
+                      // ignore: prefer_const_constructors
+                      return MessageItem(
+                        sentByMe: currentItem.sentByMe == socket.id,
+                        message: currentItem.message,
+                      );
+                    }))),
             Expanded(
                 child: Container(
-                  // ignore: prefer_const_constructors
+                    // ignore: prefer_const_constructors
                     padding: EdgeInsets.all(10),
                     color: Colors.black,
                     child: TextField(
-                      // ignore: prefer_const_constructors
+                        // ignore: prefer_const_constructors
                         style: TextStyle(color: Colors.white),
                         cursorColor: purple,
                         controller: msgInputController,
@@ -78,12 +103,12 @@ class _ChatScreenState extends State<ChatScreen> {
                             enabledBorder: OutlineInputBorder(
                               // ignore: prefer_const_constructors
                               borderSide:
-                              BorderSide(color: Colors.white, width: 1.0),
+                                  BorderSide(color: Colors.white, width: 1.0),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             // ignore: prefer_const_constructors
                             focusedBorder: OutlineInputBorder(
-                              // ignore: prefer_const_constructors
+                                // ignore: prefer_const_constructors
                                 borderSide: BorderSide(
                                     color: Colors.white, width: 1.0)),
                             suffixIcon: Container(
@@ -105,22 +130,28 @@ class _ChatScreenState extends State<ChatScreen> {
   void sendMessage(String text) {
     var messageJson = {"message": text, "sentByMe": socket.id};
     socket.emit('message', messageJson);
-
-    socket.on('message', (data) =>
-        print(data),
-    );
+    chatController.chatMessages.add(Message.fromJson(messageJson));
   }
 
   void setUpSocketListener() {
     socket.on('message-receive', (data) {
+      // ignore: avoid_print
       print(data);
+      chatController.chatMessages.add(Message.fromJson(data));
+    });
+    socket.on('connected-user', (data) {
+      // ignore: avoid_print
+      print(data);
+      chatController.connectedUser.value = data;
     });
   }
 }
 
 class MessageItem extends StatelessWidget {
-  const MessageItem({Key? key, required this.sentByMe}) : super(key: key);
+  const MessageItem({Key? key, required this.sentByMe, required this.message})
+      : super(key: key);
   final bool sentByMe;
+  final String message;
 
   @override
   // ignore: duplicate_ignore
@@ -143,7 +174,7 @@ class MessageItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                Text("Hello",
+                Text(message,
                     style: TextStyle(
                       color: sentByMe ? white : purple,
                       fontSize: 18,
