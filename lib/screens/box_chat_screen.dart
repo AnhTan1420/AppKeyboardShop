@@ -8,6 +8,7 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
   static const routeName = '/ChatBox';
+
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
@@ -20,19 +21,25 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void initState() {
+    socket = IO.io('http://192.168.1.14:3000', <String, dynamic>{
+      'transports': ['websocket'],
+    });
+
+    socket.connect();
+    setUpSocketListener();
     super.initState();
-    connectServer();
   }
 
-  void connectServer() {
-    print('Function connectServer!!!');
-    socket = IO.io(
-        'http://localhost:4000',
-        IO.OptionBuilder()
-            .setTransports(['websocket'])
-            .disableAutoConnect()
-            .build());
-    socket.connect();
+  @override
+  void dispose() {
+    return super.dispose();
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    if (this.mounted) {
+      return super.setState(fn);
+    }
   }
 
   @override
@@ -53,16 +60,16 @@ class _ChatScreenState extends State<ChatScreen> {
                         itemBuilder: (context, index) {
                           // ignore: prefer_const_constructors
                           return MessageItem(
-                            sentByMe: false,
+                            sentByMe: true,
                           );
                         }))),
             Expanded(
                 child: Container(
-                    // ignore: prefer_const_constructors
+                  // ignore: prefer_const_constructors
                     padding: EdgeInsets.all(10),
                     color: Colors.black,
                     child: TextField(
-                        // ignore: prefer_const_constructors
+                      // ignore: prefer_const_constructors
                         style: TextStyle(color: Colors.white),
                         cursorColor: purple,
                         controller: msgInputController,
@@ -71,12 +78,12 @@ class _ChatScreenState extends State<ChatScreen> {
                             enabledBorder: OutlineInputBorder(
                               // ignore: prefer_const_constructors
                               borderSide:
-                                  BorderSide(color: Colors.white, width: 1.0),
+                              BorderSide(color: Colors.white, width: 1.0),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             // ignore: prefer_const_constructors
                             focusedBorder: OutlineInputBorder(
-                                // ignore: prefer_const_constructors
+                              // ignore: prefer_const_constructors
                                 borderSide: BorderSide(
                                     color: Colors.white, width: 1.0)),
                             suffixIcon: Container(
@@ -95,15 +102,26 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  void sendMessage(String message) {
-    var messageJson = {"message": message, "sentByMe": socket.id};
+  void sendMessage(String text) {
+    var messageJson = {"message": text, "sentByMe": socket.id};
     socket.emit('message', messageJson);
+
+    socket.on('message', (data) =>
+        print(data),
+    );
+  }
+
+  void setUpSocketListener() {
+    socket.on('message-receive', (data) {
+      print(data);
+    });
   }
 }
 
 class MessageItem extends StatelessWidget {
   const MessageItem({Key? key, required this.sentByMe}) : super(key: key);
   final bool sentByMe;
+
   @override
   // ignore: duplicate_ignore
   Widget build(BuildContext context) {

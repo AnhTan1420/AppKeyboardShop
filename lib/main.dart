@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kleyboardshop/screens/box_chat_screen.dart';
 import 'package:kleyboardshop/screens/forgotpass_screen.dart';
@@ -15,7 +16,21 @@ import './screens/signin_screen.dart';
 import './screens/signup_screen.dart';
 import './screens/profile.dart';
 import './screens/setting_screen.dart';
-void main() => runApp(const MyApp());
+
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
+
+void main(){
+	HttpOverrides.global = new MyHttpOverrides();
+	runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -53,7 +68,6 @@ class MyApp extends StatelessWidget {
             ProFile.routeName: (ctx) => ProFile(),
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
             SettingsPage.routeName: (ctx) => SettingsPage(),
-            ChatScreen.routeName: (ctx) => const ChatScreen(),
           }),
     );
   }

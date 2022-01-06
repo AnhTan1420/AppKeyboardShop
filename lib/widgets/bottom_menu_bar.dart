@@ -5,7 +5,7 @@ import 'package:kleyboardshop/theme/colors.dart';
 import 'package:kleyboardshop/screens/orders_screen.dart';
 import 'package:kleyboardshop/screens/products_overview_screen.dart';
 import 'package:kleyboardshop/screens/profile.dart';
-
+import 'package:flutter/services.dart';
 class BottomMenuBar extends StatefulWidget {
   BottomMenuBar({Key? key}) : super(key: key);
 
@@ -14,6 +14,13 @@ class BottomMenuBar extends StatefulWidget {
 }
 
 class _BottomMenuBarState extends State<BottomMenuBar> {
+
+  void nvgToSocket(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => ChatScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,11 +58,8 @@ class _BottomMenuBarState extends State<BottomMenuBar> {
             Expanded(
               child: IconButton(
                 icon: Icon(Icons.chat_bubble_outline_rounded, color: KColors.icon),
-                onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed(ChatScreen.routeName);
-                },
-              ),
+                onPressed: () => nvgToSocket(context),
+				),
             ),
             Expanded(
               child: IconButton(
