@@ -23,15 +23,6 @@ class _ForgotState extends State<ForgotScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         //centerTitle: true,
-        leading: InkWell(
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
-          },
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
